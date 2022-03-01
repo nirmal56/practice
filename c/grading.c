@@ -4,10 +4,10 @@ Call this function from main( ) and print the results in main( ).*/
 #include<stdio.h>
 
 float per(int m, int s, int e){
-	float avg;
-	avg = ((float)m+(float)s+(float)e);
+	float sum;
+	sum = ((float)m+(float)s+(float)e);
 
-	return (avg * 100)/300 ;
+	return (sum * 100)/300 ;
 }
 
 int main(){
