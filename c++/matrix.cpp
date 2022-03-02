@@ -90,7 +90,8 @@ class matrix{
 
 int main(){
 
-	matrix m1(2,2),m2(2,2),m3(2,2);
+	// matrix m1(2,2),m2(2,2),m3(2,2);
+	matrix m1(3,3),m2(3,3),m3(3,3);
 	m1.getrow();
 	m1.getcol();
 	for(int i=0;i<m1.row;i++){
