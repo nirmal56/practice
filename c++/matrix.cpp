@@ -23,13 +23,16 @@ class matrix{
 
 	public:
 
-	int row =2;
-	int col =2;
+	int row ;
+	int col ;
 	// int i;
 	int **mat;
 
 	
-	matrix(){
+	matrix(int row,int col){
+		this->row=row;
+		this->col=col;
+
 		mat = new int*[row];
 
 		for(int i=0; i<row;i++){
@@ -38,34 +41,30 @@ class matrix{
 	}
 	
 	void getrow(){
-		cout<<"how many rows:";
-		cin>>row;
+		cout<<"rows:"<<row<<endl;
 	}
 
 	void getcol(){
-		cout<<"how many cols:";
-		cin>>col;
+		cout<<"cols:"<<col<<endl;
 	}
 
 	void setEle(int i, int j,int ele){
-		row=i;
-		col=j;
-		mat[row][col] = ele;
-		cout<<mat[row][col]<<endl;
+		mat[i][j] = ele;
+		// cout<<mat[i][j]<<endl;
 	}
 
 	void display(){
-		cout<<"-----------------------------"<<endl;
+		cout<<"---------------contents of matrix--------------"<<endl;
 		for(int i=0;i<row;i++){
 			for(int j=0;j<col;j++){
-				cout<<mat[row][col]<<" ";
+				cout<<mat[i][j]<<" ";
 			}
 			cout<<endl;
 		}
 	}
 
 	matrix operator + (matrix obj){			
-		matrix ans;
+		matrix ans(row,col);
 		for(int i=0;i<row;i++){
 			for(int j=0;j<col;j++){
 				ans.mat[i][j] = mat[i][j] + obj.mat[i][j];
@@ -75,11 +74,11 @@ class matrix{
 	}
 
 	matrix operator * (matrix obj){			
-		matrix ans;
+		matrix ans(row,col);
 		for(int i=0;i<row;i++){
 			for(int j=0;j<col;j++){
-				for(int k=0;k<j;k++){
-				ans.mat[i][j] += mat[i][k] * obj.mat[k][j];
+				for(int k=0;k<col;k++){
+					ans.mat[i][j] += mat[i][k] * obj.mat[k][j];
 				}
 			}
 		}
@@ -87,35 +86,34 @@ class matrix{
 	}
 };
 
-// int matrix :: row;
-// int matrix :: col;
+
 
 int main(){
 
-	matrix m1,m2,m3;
-	// m1.getrow();
-	// m1.getcol();
+	matrix m1(2,2),m2(2,2),m3(2,2);
+	m1.getrow();
+	m1.getcol();
 	for(int i=0;i<m1.row;i++){
 		for(int j=0;j<m1.col;j++){
 			m1.setEle(i,j,1);
 		}
 	}
-	// m2.getrow();
-	// m2.getcol();
+	m2.getrow();
+	m2.getcol();
 	for(int i=0;i<m2.row;i++){
 		for(int j=0;j<m2.col;j++){
-			m2.setEle(i,j,1);
+			m2.setEle(i,j,2);
 		}
 	}
 
 	m1.display();
 	m2.display();
 
-	// m3=m1+m2;
-	// m3.display();
+	m3=m1+m2;
+	m3.display();
 
-	// m3=m1*m2;
-	// m3.display();
+	m3=m1*m2;
+	m3.display();
 
 	
 	return 0;
