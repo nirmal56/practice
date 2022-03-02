@@ -20,12 +20,21 @@ You can assume that the dimensions are correct for the multiplication and additi
 using namespace std;
 
 class matrix{
-public:
-	int row ;
-	int col ;
-	int mat[row][col] ;
 
+	public:
+
+	int row =2;
+	int col =2;
+	// int i;
+	int **mat;
+
+	
 	matrix(){
+		mat = new int*[row];
+
+		for(int i=0; i<row;i++){
+			mat[i] = new int[row];
+		}
 	}
 	
 	void getrow(){
@@ -42,12 +51,14 @@ public:
 		row=i;
 		col=j;
 		mat[row][col] = ele;
+		cout<<mat[row][col]<<endl;
 	}
 
 	void display(){
+		cout<<"-----------------------------"<<endl;
 		for(int i=0;i<row;i++){
 			for(int j=0;j<col;j++){
-				cout<<mat[row][col]<<"\t";
+				cout<<mat[row][col]<<" ";
 			}
 			cout<<endl;
 		}
@@ -63,7 +74,7 @@ public:
 		return ans;
 	}
 
-	matrix operator  * (matrix obj){			
+	matrix operator * (matrix obj){			
 		matrix ans;
 		for(int i=0;i<row;i++){
 			for(int j=0;j<col;j++){
@@ -82,13 +93,17 @@ public:
 int main(){
 
 	matrix m1,m2,m3;
-	for(int i=0;i<2;i++){
-		for(int j=0;j<2;j++){
+	// m1.getrow();
+	// m1.getcol();
+	for(int i=0;i<m1.row;i++){
+		for(int j=0;j<m1.col;j++){
 			m1.setEle(i,j,1);
 		}
 	}
-	for(int i=0;i<2;i++){
-		for(int j=0;j<2;j++){
+	// m2.getrow();
+	// m2.getcol();
+	for(int i=0;i<m2.row;i++){
+		for(int j=0;j<m2.col;j++){
 			m2.setEle(i,j,1);
 		}
 	}
@@ -96,5 +111,12 @@ int main(){
 	m1.display();
 	m2.display();
 
+	// m3=m1+m2;
+	// m3.display();
+
+	// m3=m1*m2;
+	// m3.display();
+
+	
 	return 0;
 }
