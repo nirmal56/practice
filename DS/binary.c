@@ -42,7 +42,7 @@ char* dequeue(){
 		return temp;
 	}
 }
-void binary_numbers_using_queue(){
+void binaryconversion(){
 	char temp2[MAX];
 	strcpy(temp,dequeue());
 	printf("%s\n",temp);
@@ -61,6 +61,6 @@ int main(){
 	enqueue(temp);
 	printf("\nBinary numbers from 1 to %d :\n",n);
 	for(i = 1; i <= n; i++)
-		binary_numbers_using_queue();
+		binaryconversion();
 	return 0;
 }
