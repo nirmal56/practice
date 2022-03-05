@@ -46,18 +46,18 @@ void printLevelOrder(struct Node *root)
 	// Base Case
 	if (root == NULL)
 		return;
+	//insert root in queue
+	myQ[q_rear++] = root;						//rear incre //push
 
-	myQ[q_rear++] = root;
-
-	while (q_front != q_rear)
+	while (q_front != q_rear)					//untill empty
 	{
-
+		//rear-front=size//nodecount
 		int nodeCount = q_rear - q_front;
 		for (int i = 0; i < nodeCount; i++)
 		{
-			struct Node *node = myQ[q_front];
+			struct Node *node = myQ[q_front];	//front node of queue assigned to node->data of tree
 			line[l_index++] = node->data;
-			q_front++;
+			q_front++;									//front increament//pop
 			if (node->left != NULL)
 				myQ[q_rear++] = node->left;
 
