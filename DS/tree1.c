@@ -3,7 +3,7 @@
 compile using 
 gcc tree1.c -lm
 
-//need to pass refference
+//need to pass refference of lm for math.h
 */
 
 
